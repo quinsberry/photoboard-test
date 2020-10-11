@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600&family=Montserrat:wght@700&family=Roboto:wght@300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+select {
+  padding: 5px 10px 5px 2px;
+  border: 1px solid rgb(182, 182, 182);
+  color: #464646;
+  border-radius: 0;
+  outline: none;
+  cursor: pointer;
+  background-color: #fff;
+
+  &:focus,
+  &:active {
+    border-color: rgb(133, 133, 133);
+  }
+}
+
+input {
+  padding: 5px 10px;
+  border: 1px solid rgb(122, 122, 122);
+  border-radius: 4px;
+  outline: none;
+
+  &:focus,
+  &:active {
+    border-color: rgb(46, 46, 46);
+  }
+}
+
+button {
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.1s ease-in-out;
+  outline: none;
+
+  &.contained {
+    padding: 5px 12px;
+    color: #fff;
+    background-color: #389cd5;
+    border: 1px solid #389cd5;
+
+    &:hover {
+      background-color: darken(#389cd5, 5%);
+      box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active,
+    &:focus {
+      background-color: darken(#389cd5, 8%);
+    }
+
+    &:disabled {
+      border-color: #e8e8e8;
+      background-color: #e4e4e4;
+      pointer-events: none;
+    }
+  }
+
+  &.outlined {
+    padding: 5px 7px;
+    color: #389cd5;
+    background-color: #fff;
+    border: 1px solid #389cd5;
+
+    &:hover {
+      color: darken(#389cd5, 5%);
+      box-shadow: 0px 1px 6px 0px rgba(73, 169, 255, 0.2);
+    }
+
+    &:active,
+    &:focus {
+      color: darken(#389cd5, 8%);
+    }
+
+    &:disabled {
+      color: #bbbbbb;
+      border-color: #bbbbbb;
+      pointer-events: none;
+    }
+  }
+}

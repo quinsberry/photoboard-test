@@ -1,0 +1,153 @@
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+
+  .add-image-section {
+    form {
+      display: flex;
+    }
+
+    .input {
+      position: relative;
+
+      input {
+        width: 250px;
+      }
+
+      span {
+        position: absolute;
+        top: -15px;
+        left: 7px;
+        font-size: 11px;
+        font-weight: 300;
+        color: #7f7f7f;
+      }
+    }
+
+    .add-btn {
+      width: 70px;
+      margin-left: 15px;
+    }
+  }
+
+  .tagging-section {
+    button {
+      padding: 5px 12px;
+    }
+  }
+
+  .change-board-section {
+    display: flex;
+    position: relative;
+
+    .select {
+      position: relative;
+
+      select {
+        width: 140px;
+      }
+
+      span {
+        position: absolute;
+        top: -15px;
+        left: 7px;
+        font-size: 11px;
+        font-weight: 300;
+        color: #7f7f7f;
+      }
+    }
+
+    .new-border-btn {
+      margin-left: 40px;
+    }
+
+    .inputNewBoard {
+      display: flex;
+      position: absolute;
+      bottom: -65px;
+      right: 0;
+      padding: 13px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      background: #f3f3f3;
+
+      input {
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .add-btn {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.images {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  position: relative;
+
+  .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px 10px;
+
+    .img-block {
+      display: inline;
+      position: relative;
+      width: auto;
+
+      img {
+        max-height: 160px;
+        box-shadow: 20px 20px 80px 0 rgba(16, 5, 48, 0.18);
+      }
+    }
+
+    &-tags {
+      display: inline-flex;
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      max-width: 100%;
+      flex-wrap: wrap;
+
+      span {
+        font-size: 10px;
+        color: #7f7f7f;
+        margin-right: 4px;
+        visibility: hidden;
+        cursor: pointer;
+
+        &:nth-child(1),
+        &:nth-child(2) {
+          visibility: visible;
+        }
+      }
+
+      &:hover {
+        span {
+          visibility: visible;
+          background-color: #fff;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 20px;
+
+  .cancel {
+    margin-right: 10px;
+  }
+}

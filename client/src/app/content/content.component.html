@@ -1,0 +1,86 @@
+<div class="topbar">
+  <div class="add-image-section">
+    <form [formGroup]="newPhotoUrl" (submit)="addNewPhoto()">
+      <div class="input">
+        <span>Add image to the board</span>
+        <input type="text" formControlName="text" />
+      </div>
+      <button
+        type="submit"
+        class="add-btn contained"
+        [disabled]="isLoading || isEdit"
+      >
+        Add
+      </button>
+    </form>
+  </div>
+  <div class="tagging-section">
+    <button
+      class="tagging-btn outlined"
+      (click)="runTagging()"
+      [disabled]="isLoading || isEdit"
+    >
+      Run Tagging API
+    </button>
+  </div>
+  <div class="change-board-section">
+    <div class="select">
+      <span>Selectan existing board</span>
+      <select
+        class="board-select"
+        name="boards"
+        [value]="selectedBoard._id"
+        (change)="changeBoard($event.target.value)"
+        [disabled]="isLoading || isEdit"
+      >
+        <option [value]="board._id" *ngFor="let board of boards; let i = index">
+          {{ board.name === "default" ? "Default board" : board.name }}
+        </option>
+      </select>
+    </div>
+    <button
+      class="new-border-btn outlined"
+      (click)="openPopup()"
+      [disabled]="isLoading || isEdit"
+    >
+      Create a new board
+    </button>
+
+    <form
+      [formGroup]="newBoardTitle"
+      (submit)="createNewBoard()"
+      class="inputNewBoard"
+      *ngIf="isCreateNewBoardOpen"
+    >
+      <input type="text" formControlName="text" />
+      <button
+        type="submit"
+        class="add-btn contained"
+        [disabled]="isLoading || isEdit"
+      >
+        Add
+      </button>
+      <button (click)="closePopup()" class="cancel-btn contained">Close</button>
+    </form>
+  </div>
+</div>
+<div class="images">
+  <div class="image" *ngFor="let image of images; let i = index">
+    <div class="img-block">
+      <img [src]="image.imageUrl" alt="Image example" />
+      <div class="image-tags">
+        <span *ngFor="let tag of image.tags; let idx = index"
+          >#{{ tag.tag }}</span
+        >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="actions" *ngIf="isEdit">
+  <button class="cancel outlined" [disabled]="isLoading" (click)="cancel()">
+    Dismiss Changes
+  </button>
+  <button class="save contained" [disabled]="isLoading" (click)="save()">
+    Save Board
+  </button>
+</div>
