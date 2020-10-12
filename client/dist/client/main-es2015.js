@@ -596,18 +596,20 @@ let ApiService = class ApiService {
     constructor(http) {
         this.http = http;
         this.isLoading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        // private apiUrl = "http://localhost:3001" // dev
+        this.apiUrl = "http://localhost:3000";
     }
     getAllImages() {
-        return this.http.get("http://localhost:3001/api/images");
+        return this.http.get(`${this.apiUrl}/api/images`);
     }
     getBoardImage(boardName = "default") {
-        return this.http.get(`http://localhost:3001/api/images/board?name=${boardName}`);
+        return this.http.get(`${this.apiUrl}/api/images/board?name=${boardName}`);
     }
     getTags(boardName = "default") {
-        return this.http.get(`http://localhost:3001/api/images/board/${boardName}`);
+        return this.http.get(`${this.apiUrl}/api/images/board/${boardName}`);
     }
     removeTags(boardName = "default") {
-        return this.http.delete(`http://localhost:3001/api/images/board/${boardName}`);
+        return this.http.delete(`${this.apiUrl}/api/images/board/${boardName}`);
     }
     sendNewImage(imageUrl, board = "default") {
         const obj = {
@@ -615,16 +617,18 @@ let ApiService = class ApiService {
             board,
             tags: [],
         };
-        return this.http.post("http://localhost:3001/api/images", obj);
+        return this.http.post("${this.apiUrl}/api/images", obj);
     }
     createNewBoard(boardName) {
-        return this.http.post(`http://localhost:3001/api/boards`, { name: boardName });
+        return this.http.post(`${this.apiUrl}/api/boards`, {
+            name: boardName,
+        });
     }
     showTheBoard(id) {
-        return this.http.get(`http://localhost:3001/api/boards/${id}`);
+        return this.http.get(`${this.apiUrl}/api/boards/${id}`);
     }
     getAllBoards() {
-        return this.http.get(`http://localhost:3001/api/boards`);
+        return this.http.get(`${this.apiUrl}/api/boards`);
     }
 };
 ApiService.ctorParameters = () => [

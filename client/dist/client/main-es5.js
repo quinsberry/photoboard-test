@@ -1207,31 +1207,33 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         _classCallCheck(this, ApiService);
 
         this.http = http;
-        this.isLoading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false);
+        this.isLoading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // private apiUrl = "http://localhost:3001" // dev
+
+        this.apiUrl = "http://localhost:3000";
       }
 
       _createClass(ApiService, [{
         key: "getAllImages",
         value: function getAllImages() {
-          return this.http.get("http://localhost:3001/api/images");
+          return this.http.get("".concat(this.apiUrl, "/api/images"));
         }
       }, {
         key: "getBoardImage",
         value: function getBoardImage() {
           var boardName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "default";
-          return this.http.get("http://localhost:3001/api/images/board?name=".concat(boardName));
+          return this.http.get("".concat(this.apiUrl, "/api/images/board?name=").concat(boardName));
         }
       }, {
         key: "getTags",
         value: function getTags() {
           var boardName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "default";
-          return this.http.get("http://localhost:3001/api/images/board/".concat(boardName));
+          return this.http.get("".concat(this.apiUrl, "/api/images/board/").concat(boardName));
         }
       }, {
         key: "removeTags",
         value: function removeTags() {
           var boardName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "default";
-          return this.http["delete"]("http://localhost:3001/api/images/board/".concat(boardName));
+          return this.http["delete"]("".concat(this.apiUrl, "/api/images/board/").concat(boardName));
         }
       }, {
         key: "sendNewImage",
@@ -1242,24 +1244,24 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             board: board,
             tags: []
           };
-          return this.http.post("http://localhost:3001/api/images", obj);
+          return this.http.post("${this.apiUrl}/api/images", obj);
         }
       }, {
         key: "createNewBoard",
         value: function createNewBoard(boardName) {
-          return this.http.post("http://localhost:3001/api/boards", {
+          return this.http.post("".concat(this.apiUrl, "/api/boards"), {
             name: boardName
           });
         }
       }, {
         key: "showTheBoard",
         value: function showTheBoard(id) {
-          return this.http.get("http://localhost:3001/api/boards/".concat(id));
+          return this.http.get("".concat(this.apiUrl, "/api/boards/").concat(id));
         }
       }, {
         key: "getAllBoards",
         value: function getAllBoards() {
-          return this.http.get("http://localhost:3001/api/boards");
+          return this.http.get("".concat(this.apiUrl, "/api/boards"));
         }
       }]);
 

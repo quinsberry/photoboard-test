@@ -29,28 +29,28 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   public isLoading = new BehaviorSubject<boolean>(false);
+  // private apiUrl = "http://localhost:3001" // dev
+  private apiUrl = "http://localhost:3000";
 
   getAllImages() {
-    return this.http.get<Response<TImage[]>>(
-      "http://localhost:3001/api/images"
-    );
+    return this.http.get<Response<TImage[]>>(`${this.apiUrl}/api/images`);
   }
 
   getBoardImage(boardName: string = "default") {
     return this.http.get<Response<TImage[]>>(
-      `http://localhost:3001/api/images/board?name=${boardName}`
+      `${this.apiUrl}/api/images/board?name=${boardName}`
     );
   }
 
   getTags(boardName: string = "default") {
     return this.http.get<Response<TImage[]>>(
-      `http://localhost:3001/api/images/board/${boardName}`
+      `${this.apiUrl}/api/images/board/${boardName}`
     );
   }
 
   removeTags(boardName: string = "default") {
     return this.http.delete<Response<TImage[]>>(
-      `http://localhost:3001/api/images/board/${boardName}`
+      `${this.apiUrl}/api/images/board/${boardName}`
     );
   }
 
@@ -60,28 +60,20 @@ export class ApiService {
       board,
       tags: [],
     };
-    return this.http.post<Response<TImage[]>>(
-      "http://localhost:3001/api/images",
-      obj
-    );
+    return this.http.post<Response<TImage[]>>("${this.apiUrl}/api/images", obj);
   }
 
   createNewBoard(boardName: string) {
-    return this.http.post<Response<IBoard>>(
-      `http://localhost:3001/api/boards`,
-      { name: boardName }
-    );
+    return this.http.post<Response<IBoard>>(`${this.apiUrl}/api/boards`, {
+      name: boardName,
+    });
   }
 
   showTheBoard(id: string) {
-    return this.http.get<Response<IBoard>>(
-      `http://localhost:3001/api/boards/${id}`
-    );
+    return this.http.get<Response<IBoard>>(`${this.apiUrl}/api/boards/${id}`);
   }
 
   getAllBoards() {
-    return this.http.get<Response<IBoard[]>>(
-      `http://localhost:3001/api/boards`
-    );
+    return this.http.get<Response<IBoard[]>>(`${this.apiUrl}/api/boards`);
   }
 }
