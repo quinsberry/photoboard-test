@@ -1209,7 +1209,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         this.http = http;
         this.isLoading = new rxjs__WEBPACK_IMPORTED_MODULE_2__["BehaviorSubject"](false); // private apiUrl = "http://localhost:3001" // dev
 
-        this.apiUrl = "http://localhost:3000";
+        this.apiUrl = "http://photoboard-test.eu-4.evennode.com";
       }
 
       _createClass(ApiService, [{
