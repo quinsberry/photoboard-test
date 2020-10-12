@@ -30,7 +30,7 @@ export class ApiService {
 
   public isLoading = new BehaviorSubject<boolean>(false);
   // private apiUrl = "http://localhost:3001" // dev
-  private apiUrl = "http://localhost:3000";
+  private apiUrl = "http://photoboard-test.eu-4.evennode.com";
 
   getAllImages() {
     return this.http.get<Response<TImage[]>>(`${this.apiUrl}/api/images`);
