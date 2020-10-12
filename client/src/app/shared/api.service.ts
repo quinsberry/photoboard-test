@@ -60,7 +60,7 @@ export class ApiService {
       board,
       tags: [],
     };
-    return this.http.post<Response<TImage[]>>("${this.apiUrl}/api/images", obj);
+    return this.http.post<Response<TImage[]>>(`${this.apiUrl}/api/images`, obj);
   }
 
   createNewBoard(boardName: string) {

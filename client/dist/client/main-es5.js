@@ -1244,7 +1244,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
             board: board,
             tags: []
           };
-          return this.http.post("${this.apiUrl}/api/images", obj);
+          return this.http.post("".concat(this.apiUrl, "/api/images"), obj);
         }
       }, {
         key: "createNewBoard",

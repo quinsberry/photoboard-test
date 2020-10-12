@@ -617,7 +617,7 @@ let ApiService = class ApiService {
             board,
             tags: [],
         };
-        return this.http.post("${this.apiUrl}/api/images", obj);
+        return this.http.post(`${this.apiUrl}/api/images`, obj);
     }
     createNewBoard(boardName) {
         return this.http.post(`${this.apiUrl}/api/boards`, {
