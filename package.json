@@ -23,7 +23,6 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "cross-env": "^7.0.2",
     "nodemon": "^2.0.4"
   },
   "dependencies": {
@@ -34,6 +33,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.6.0",
     "mongoose": "^5.9.22",
+    "cross-env": "^7.0.2",
     "node-fetch": "^2.6.1"
   }
 }
